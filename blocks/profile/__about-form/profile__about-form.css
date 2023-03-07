@@ -1,0 +1,17 @@
+.profile__about-form {
+  color: #fff;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.22;
+  margin: 0;
+}
+
+@media screen and (max-width: 1023px) {
+  .profile__about-form {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+
+
+

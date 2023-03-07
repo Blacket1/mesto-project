@@ -1,0 +1,21 @@
+.header {
+  width: 100%;
+  padding: 45px 200px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1279px) {
+  .header {
+    padding-left: 50px;
+    padding-right: 50px;
+ } 
+}
+
+
+@media screen and (max-width: 767px) {
+  .header {
+    padding: 28px 0 42px;
+  }
+}

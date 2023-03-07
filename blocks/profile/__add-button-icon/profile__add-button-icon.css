@@ -1,0 +1,6 @@
+.profile__add-button-icon {
+  background-image: url(../../../images/icon/add-icon.svg);
+  min-width: 22px;
+  min-height: 22px;
+  background-repeat:no-repeat;
+}
