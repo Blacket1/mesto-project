@@ -4,6 +4,8 @@
   min-height: 32px;
   background-repeat:no-repeat;
   background-size: cover;
+  background-color: transparent;
+  border: none;
   position: absolute;
   top: -152px;
   right: -48px;
@@ -11,7 +13,7 @@
 }
 
 .popup__close-button:hover {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: pointer;
 }
 
