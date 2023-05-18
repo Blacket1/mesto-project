@@ -28,48 +28,16 @@
       </section>
       <section class="elements">
         <ul class="elements__cards">
-          <li class="elements__item">
-            <img src="./images/elements/element-karachaevsk.jpg" alt="карачаевск" class="elements__image">
-            <div class="elements__item-info">
-              <h2 class="elements__text">Карачаевск</h2>
-              <button type="button" class="elements__like-button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img src="./images/elements/element-elbrus.jpg" alt="эльбрус" class="elements__image">
-            <div class="elements__item-info">
-              <h2 class="elements__text">Гора Эльбрус</h2>
-              <button type="button" class="elements__like-button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img src="./images/elements/element-dombai.jpg" alt="домбай" class="elements__image">
-            <div class="elements__item-info">
-              <h2 class="elements__text">Домбай</h2>
-              <button type="button" class="elements__like-button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img src="./images/elements/element-elbrus2.jpg" alt="элбрус" class="elements__image">
-            <div class="elements__item-info">
-              <h2 class="elements__text">Гора Эльбрус</h2>
-              <button type="button" class="elements__like-button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img src="./images/elements/element-dombai2.jpg" alt="домбай2" class="elements__image">
-            <div class="elements__item-info">
-              <h2 class="elements__text">Домбай</h2>
-              <button type="button" class="elements__like-button"></button>
-            </div>
-          </li>
-          <li class="elements__item">
-            <img src="./images/elements/element-cherkessia.jpg" alt="карачаево-черкессия" class="elements__image">
-            <div class="elements__item-info">
-              <h2 class="elements__text">Карачаево-Черкессия</h2>
-              <button type="button" class="elements__like-button"></button>
-            </div>
-          </li>
+          <template class="template-card">
+            <li class="elements__item">
+              <img src="" alt="" class="elements__image">
+              <button type="button" class="elements__trash-button"></button>
+              <div class="elements__item-info">
+                <h2 class="elements__text"></h2>
+                <button type="button" class="elements__like-button"></button>
+              </div>
+            </li>
+          </template>
         </ul>
       </section>
     </main>
@@ -81,13 +49,26 @@
         <h2 class="popup__heading">Редактировать профиль</h2>
         <form class="popup__input-container" name="form">
           <button type="button" class="popup__close-button"></button>
-          <input type="text" required placeholder="Имя" name="name" class="popup__text">
-          <input type="text" placeholder="О себе" name="about" class="popup__text">
+          <input type="text" required placeholder="Имя" name="name" class="popup__text popup__text_name">
+          <input type="text" required placeholder="О себе" name="about" class="popup__text popup__text_about">
+          <input type="submit" value="Сохранить" class="popup__submit">
+        </form>
+      </div>
+    </section>
+    <section class="popup popup_add-card">
+      <div class="popup__container">
+        <h2 class="popup__heading">Новое место</h2>
+        <form class="popup__input-container" name="form">
+          <button type="button" class="popup__close-button popup__close-button_card"></button>
+          <input type="text" placeholder="Название" name="name-card" class="popup__text popup__text_namecard">
+          <input type="text" placeholder="Ссылка на картинку" name="adress-card"
+            class="popup__text popup__text_adress-card">
           <input type="submit" value="Сохранить" class="popup__submit">
         </form>
       </div>
     </section>
   </div>
+  <script src="script.js"></script>
 </body>
 
 </html>
