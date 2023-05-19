@@ -28,16 +28,7 @@
       </section>
       <section class="elements">
         <ul class="elements__cards">
-          <template class="template-card">
-            <li class="elements__item">
-              <img src="" alt="" class="elements__image">
-              <button type="button" class="elements__trash-button"></button>
-              <div class="elements__item-info">
-                <h2 class="elements__text"></h2>
-                <button type="button" class="elements__like-button"></button>
-              </div>
-            </li>
-          </template>
+
         </ul>
       </section>
     </main>
@@ -67,7 +58,26 @@
         </form>
       </div>
     </section>
+    <section class="popup-picture">
+      <div class="popup-picture__container">
+        <img src="" alt="" class="popup-picture__image">
+        <button type="button" class="popup-picture__close-button"></button>
+        <p class="popup-picture__text"></p>
+      </div>
+    </section>
   </div>
+
+  <template class="template-card">
+    <li class="elements__item">
+      <img src="" alt="" class="elements__image">
+      <button type="button" class="elements__trash-button"></button>
+      <div class="elements__item-info">
+        <h2 class="elements__text"></h2>
+        <button type="button" class="elements__like-button"></button>
+      </div>
+    </li>
+  </template>
+
   <script src="script.js"></script>
 </body>
 

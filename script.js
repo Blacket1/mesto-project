@@ -8,6 +8,7 @@ const popupNameCard = document.querySelector('.popup__text_namecard');
 const popupAddresCard = document.querySelector('.popup__text_adress-card');
 let popup = document.querySelector('.popup');
 let popupCard = document.querySelector('.popup_add-card');
+let popupPicture =document.querySelector('.popup-picture');
 const cardsContainer = document.querySelector('.elements__cards');
 
 
@@ -77,11 +78,25 @@ const initialCards = [
 function addCard(nameValue, linkValue) {
   const templateCard = document.querySelector('.template-card').content;
   const cardItem = templateCard.querySelector('.elements__item').cloneNode(true);
+  
   cardItem.querySelector('.elements__image').src = linkValue;
   cardItem.querySelector('.elements__image').alt = nameValue;
   cardItem.querySelector('.elements__text').textContent = nameValue;
+
+  cardItem.querySelector('.elements__like-button').addEventListener('click', function(evt) {
+    evt.target.classList.toggle('elements__like-button_active');
+  });
+  
+  cardItem.querySelector('.elements__trash-button').addEventListener('click', function() {
+    cardItem.remove();
+  });
+
   cardsContainer.prepend(cardItem);
+  
+  popupNameCard.value = '';
+  popupAddresCard.value = '';
 };
+
 
 initialCards.forEach(function(item) {
   return addCard(item.name, item.link);
@@ -90,7 +105,30 @@ initialCards.forEach(function(item) {
 popupCard.addEventListener('submit', function(evt) {
   evt.preventDefault();
   closePopup(popupCard);
-  popupNameCard.value = '';
-  popupAddresCard.value = '';
   return addCard(popupNameCard.value, popupAddresCard.value);
 });
+
+
+function closePopupPicture(popupElement) {
+  popupElement.classList.remove('popup-picture_opened');
+};
+
+const popupPictureCloseButton = document.querySelector('.popup-picture__close-button');
+const cardImages = document.querySelectorAll('.elements__image');
+let popupImage = document.querySelector('.popup-picture__image');
+let popupPictureText = document.querySelector('.popup-picture__text');
+
+cardImages.forEach(function(item){
+  item.addEventListener('click', function(){
+    popupPicture.classList.add('popup-picture_opened');
+    popupImage.src = item.src;
+    popupPictureText.textContent = item.alt;
+  });
+
+  popupPictureCloseButton.addEventListener('click', function(){
+    closePopupPicture(popupPicture);
+  });
+  
+});
+
+console.log(popupPictureText);
