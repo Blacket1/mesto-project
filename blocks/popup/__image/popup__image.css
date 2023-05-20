@@ -1,4 +1,4 @@
-.popup-picture__image {
+.popup__image {
   object-fit: cover;
   max-height: 540px;
 }

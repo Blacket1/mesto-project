@@ -1,9 +1,9 @@
-.popup-picture__text {
+.popup__text-picture {
   font-family: 'Inter';
   font-weight: 400;
   font-size: 12px;
   line-height: 1.2;
-  color: #FFFFFF;
+  color: #fff;
   padding-top: 10px;
   margin: 0;
 }
