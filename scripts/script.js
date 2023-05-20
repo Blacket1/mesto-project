@@ -81,7 +81,7 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
 ];
-//функция создани карточки
+//функция создания карточки
 function createCard(name, link) {
   const templateElement = document.querySelector('.template-card').content;
   const cardItem = templateElement.querySelector('.elements__item').cloneNode(true);
