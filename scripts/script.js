@@ -115,7 +115,7 @@ function addCard(nameValue, linkValue){
 }
 //обход массива для создания 6 стандартных карточек
 initialCards.forEach(function(item){
-  addCard(item.name, item.link);
+  return addCard(item.name, item.link);
 })
 
 //слушатель для добавления своих карточек с помощью попапа
