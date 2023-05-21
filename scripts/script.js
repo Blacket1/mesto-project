@@ -115,13 +115,13 @@ function addCard(nameValue, linkValue){
 }
 //обход массива для создания 6 стандартных карточек
 initialCards.forEach(function(item){
-  return addCard(item.name, item.link);
+  addCard(item.name, item.link);
 })
 
 //слушатель для добавления своих карточек с помощью попапа
 popupCard.addEventListener('submit', function(evt) {
   evt.preventDefault();
-  evt.target.reset();
   closePopup(popupCard);
-  return addCard(popupNameCard.value, popupAddresCard.value);
+  addCard(popupNameCard.value, popupAddresCard.value);
+  evt.target.reset();
 });
