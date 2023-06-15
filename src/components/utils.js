@@ -1,4 +1,5 @@
-
+import { keydownClosePopup, mouseClickClosePopup } from "./modal.js";
+import { body } from "./index.js";
 
 // функция блокирвки/разлокировки кнопки "сохранить" для ососбых случаев (открытие модального окна)
 export const disableButton = (namePopup, linkPopup, popupElement) => {
@@ -21,4 +22,19 @@ export const clearError = (popupElement) => {
       errorElement.classList.remove('popup__input-error_active');
       errorElement.textContent = '';
   })
+}
+
+//функция открытия попапов
+export function openPopup(popupElement) {
+  popupElement.classList.add('popup_opened');
+  body.addEventListener('keydown', keydownClosePopup);
+  body.addEventListener('click', mouseClickClosePopup);
+}
+
+//функция закрытия попапов
+export function closePopup(popupElement) {
+  popupElement.classList.remove('popup_opened');
+  body.removeEventListener('keydown', keydownClosePopup);
+  body.removeEventListener('click', mouseClickClosePopup);
+  clearError(popupElement);
 }
