@@ -1,5 +1,4 @@
-import { popupProfile, popupName, popupAbout, profileAbout, profileName } from './index.js';
-import { closePopup } from './utils.js';
+import { body } from './index.js';
 
 //функция закрытия попапа нажатием кнопки 'esc'
 export const keydownClosePopup = (evt) => {
@@ -17,12 +16,18 @@ export const mouseClickClosePopup = (evt) => {
   }
 }
 
-//функция добавления текста в профиль
-export function addProfileText(evt) {
-  evt.preventDefault();
-  profileName.textContent = popupName.value;
-  profileAbout.textContent = popupAbout.value;
-  closePopup(popupProfile);
+//функция открытия попапов
+export function openPopup(popupElement) {
+  popupElement.classList.add('popup_opened');
+  body.addEventListener('keydown', keydownClosePopup);
+  body.addEventListener('click', mouseClickClosePopup);
+}
+
+//функция закрытия попапов
+export function closePopup(popupElement) {
+  popupElement.classList.remove('popup_opened');
+  body.removeEventListener('keydown', keydownClosePopup);
+  body.removeEventListener('click', mouseClickClosePopup);
 }
 
 

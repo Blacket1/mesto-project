@@ -1,5 +1,11 @@
 import { settingsOfValidation } from "./index.js";
 
+// функция блокирвки/разлокировки кнопки "сохранить" для ососбых случаев (открытие модального окна)
+export const disableButton = (popupElement) => {
+  const buttonPopupElement = popupElement.querySelector('.popup__submit')
+    buttonPopupElement.setAttribute('disabled', true);
+    buttonPopupElement.classList.add('popup__submit_inactive');
+}
 
 //показывает элемент ошибки
 const showInputError = (formElement, inputElement, errorMessage, settingsOfValidation) => {
@@ -10,7 +16,7 @@ const showInputError = (formElement, inputElement, errorMessage, settingsOfValid
 }
 
 //скрывает элемент ошибки
-const hideInputError = (formElement, inputElement, settingsOfValidation) => {
+export const hideInputError = (formElement, inputElement, settingsOfValidation) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(settingsOfValidation.inputErrorClass);
   errorElement.classList.remove(settingsOfValidation.errorClass);
@@ -34,7 +40,6 @@ const toggleButtonState = (inputList, buttonElement, settingsOfValidation) => {
     buttonElement.classList.remove(settingsOfValidation.inactiveButtonClass);
   }
 }
-
 
 // Функция, которая проверяет валидность поля
 const isValid = (formElement, inputElement, settingsOfValidation) => {
