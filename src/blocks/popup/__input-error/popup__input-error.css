@@ -1,0 +1,16 @@
+/*красный текст с ошибкой*/
+.popup__input-error {
+  display: block;
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #FF0000;
+  box-sizing: border-box;
+  min-height: 30px;
+  visibility: hidden;
+}
+
+.popup__input-error:last-of-type {
+  min-height: 48px;
+}
