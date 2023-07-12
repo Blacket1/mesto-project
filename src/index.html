@@ -15,7 +15,9 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img src="<%=require('./images/avatar-image.jpg')%>" alt="ваше фото" class="profile__avatar">
+        <div class="profile__avatar-container">
+          <img src="<%=require('./images/avatar-image.jpg')%>" alt="ваше фото" class="profile__avatar">
+        </div>
         <div class="profile__info">
           <div class="profile__info-name">
             <h1 class="profile__name-form">Жак-Ив Кусто</h1>
@@ -37,7 +39,7 @@
     <section class="popup popup_profile">
       <div class="popup__container">
         <h2 class="popup__heading">Редактировать профиль</h2>
-        <form class="popup__input-container" name="form" novalidate>
+        <form class="popup__input-container popup__input-container_profile" name="form" novalidate>
           <button type="button" class="popup__close-button popup__close-button_profile"></button>
           <input id="popup-text-name" type="text" placeholder="Имя" name="name" class="popup__text popup__text_name"
             minlength="2" maxlength="40" required pattern="^[а-яёА-ЯЁa-zA-Z \-]+$"
@@ -48,14 +50,14 @@
             pattern="^[а-яёА-ЯЁa-zA-Z \-]+$"
             data-error-message="Разрешены только латинские, кириллические буквы, знаки дефиса и пробелы">
           <span class="popup-text-about-error popup__input-error"></span>
-          <button type="submit" class="popup__submit">Сохранить</button>
+          <button type="submit" class="popup__submit popup__submit_profile">Сохранить</button>
         </form>
       </div>
     </section>
     <section class="popup popup_add-card">
       <div class="popup__container">
         <h2 class="popup__heading">Новое место</h2>
-        <form class="popup__input-container" name="form" novalidate>
+        <form class="popup__input-container popup__input-container_card" name="form" novalidate>
           <button type="button" class="popup__close-button popup__close-button_card"></button>
           <input id="popup-card-name" type="text" placeholder="Название" name="name-card"
             class="popup__text popup__text_namecard" minlength="2" maxlength="30" required
@@ -65,7 +67,19 @@
           <input id="popup-card-adress" type="url" placeholder="Ссылка на картинку" name="adress-card"
             class="popup__text popup__text_adress-card" required>
           <span class="popup-card-adress-error popup__input-error"></span>
-          <button type="submit" class="popup__submit">Сохранить</button>
+          <button type="submit" class="popup__submit popup__submit_card">Сохранить</button>
+        </form>
+      </div>
+    </section>
+    <section class="popup popup_edit-avatar">
+      <div class="popup__container">
+        <h2 class="popup__heading">Обновить аватар</h2>
+        <form class="popup__input-container popup__input-container_avatar" name="form" novalidate>
+          <button type="button" class="popup__close-button popup__close-button_avatar"></button>
+          <input id="popup-avatar" type="url" placeholder="Ссылка на картинку" name="avatar"
+            class="popup__text popup__text_avatar" required>
+          <span class="popup-avatar-error popup__input-error"></span>
+          <button type="submit" class="popup__submit popup__submit_avatar">Сохранить</button>
         </form>
       </div>
     </section>
@@ -84,7 +98,10 @@
       <button type="button" class="elements__trash-button"></button>
       <div class="elements__item-info">
         <h2 class="elements__text"></h2>
-        <button type="button" class="elements__like-button"></button>
+        <div class="elements__like-place">
+          <button type="button" class="elements__like-button"></button>
+          <p class="elements__like-numbers"></p>
+        </div>
       </div>
     </li>
   </template>
