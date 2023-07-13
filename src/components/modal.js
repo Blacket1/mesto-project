@@ -20,14 +20,14 @@ export const mouseClickClosePopup = (evt) => {
 export function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
   body.addEventListener('keydown', keydownClosePopup);
-  body.addEventListener('click', mouseClickClosePopup);
+  body.addEventListener('mousedown', mouseClickClosePopup);
 }
 
 //функция закрытия попапов
 export function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
   body.removeEventListener('keydown', keydownClosePopup);
-  body.removeEventListener('click', mouseClickClosePopup);
+  body.removeEventListener('mousedown', mouseClickClosePopup);
 }
 
 

@@ -53,6 +53,7 @@ const profileInfo = (userData) => {
   profileAbout.textContent = userData.about;
   profileAvatar.src = userData.avatar;
 }
+
 //+устанавливаем id пользователя
 getProfileInfo()
   .then((userData) => {
@@ -69,19 +70,19 @@ profileEditButton.addEventListener('click', function () {
   openPopup(popupProfile);
   popupName.value = profileName.textContent;
   popupAbout.value = profileAbout.textContent;
-  disableButton(popupProfile);
+  disableButton(popupProfile, settingsOfValidation);
 });
 
 profileAddButton.addEventListener('click', function () {
   clearError(popupCard);
   openPopup(popupCard);
-  disableButton(popupCard);
+  disableButton(popupCard, settingsOfValidation);
 });
 
 profileAvatarBtn.addEventListener('click', function () {
   clearError(popupEditAvatar);
   openPopup(popupEditAvatar);
-  disableButton(popupEditAvatar);
+  disableButton(popupEditAvatar, settingsOfValidation);
 })
 
 //обработчик кнопок закрытия попапов
@@ -98,15 +99,15 @@ const addProfileText = (evt) => {
   submitProfile.textContent = 'Сохранение...';
   profileEditData({name: popupName.value, about: popupAbout.value})
     .then((data) => {
-      profileName.textContent = data.name,
-      profileAbout.textContent = data.about
+      profileName.textContent = data.name;
+      profileAbout.textContent = data.about;
+      closePopup(popupProfile);
     })
     .catch((err) => {
       console.error(err);
     })
     .finally(() => {
-      submitProfile.textContent = 'Сохранить',
-      closePopup(popupProfile);
+      submitProfile.textContent = 'Сохранить';
     })
 }
 
@@ -117,13 +118,13 @@ const addProfileAvatar = (evt) => {
   profileEditAvatar({ avatar: popupAvatar.value })
     .then((data) => {
       profileAvatar.src = data.avatar;
+      closePopup(popupEditAvatar);
     })
     .catch((err) => {
       console.error(err);
     })
     .finally(() => {
-      submitAvatar.textContent = 'Сохранить',
-      closePopup(popupEditAvatar);
+      submitAvatar.textContent = 'Сохранить';
       evt.target.reset();
     })
 }
@@ -136,8 +137,9 @@ function addCard(dataCard){
 
 getCardData()
   .then((data) => {
-    data.forEach((item) => {
-      return addCard(item);
+    const reverseData = data.reverse();
+    reverseData.forEach((item) => {
+      addCard(item);
     })
   })
   .catch((err) => {
@@ -152,13 +154,13 @@ const addMyCard = (evt) => {
   createCardData({ name: popupNameCard.value, link: popupAddresCard.value })
     .then((data) => {
       addCard(data);
+      closePopup(popupCard);
     })
     .catch((err) => {
       console.error(err);
     })
     .finally(() => {
       submitCard.textContent = 'Сохранить';
-      closePopup(popupCard);
       evt.target.reset();
     })
 }

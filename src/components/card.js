@@ -2,6 +2,7 @@ import { popupImage, popupTextPicture, popupPicture, profile } from "./index.js"
 import { openPopup } from "./modal.js";
 import { deleteCardData, putLike, deleteLike } from "./api.js";
 
+
 //функция лайка картинки
 const likeCard = (evt) => {
   const item = evt.target.closest('.elements__item');
@@ -64,7 +65,7 @@ export function createCard(dataCard) {
   likeButton.addEventListener('click', likeCard);
 //кнопка корзины 
   deleteButton.addEventListener('click', deleteCard);
-//слушатель вызвающий открытие картинки при нажатии на картинку карточки
+//слушатель вызвающий открытие при нажатии на картинку карточки
   elementImage.addEventListener('click', function(){
     popupImage.src = dataCard.link;
     popupImage.alt = dataCard.name;

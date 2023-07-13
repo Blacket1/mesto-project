@@ -1,7 +1,7 @@
 import { settingsOfValidation } from "./index.js";
 
 // функция блокирвки/разлокировки кнопки "сохранить" для ососбых случаев (открытие модального окна)
-export const disableButton = (popupElement) => {
+export const disableButton = (popupElement, settingsOfValidation) => {
   const buttonPopupElement = popupElement.querySelector(settingsOfValidation.submitButtonSelector)
     buttonPopupElement.setAttribute('disabled', true);
     buttonPopupElement.classList.add(settingsOfValidation.inactiveButtonClass);
