@@ -46,12 +46,12 @@ const deleteCard = (evt) => {
 export function createCard(dataCard) {
   const templateElement = document.querySelector('.template-card').content;
   const cardItem = templateElement.querySelector('.elements__item').cloneNode(true);
-  cardItem.dataset.id = dataCard._id;
   const elementImage = cardItem.querySelector('.elements__image');
   const elementText = cardItem.querySelector('.elements__text');
   const deleteButton = cardItem.querySelector('.elements__trash-button');
   const likeButton = cardItem.querySelector('.elements__like-button');
   const likeNumbers = cardItem.querySelector('.elements__like-numbers');
+  cardItem.dataset.id = dataCard._id;
 
   elementImage.src = dataCard.link;
   elementImage.alt = dataCard.name;
