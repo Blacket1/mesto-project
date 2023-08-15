@@ -8,15 +8,13 @@ import { getProfileInfo, getCardData, profileEditData, createCardData, profileEd
 
 //необходимые переменные
 const profileAvatar = document.querySelector('.profile__avatar');
-const submitProfile = document.querySelector('.popup__submit_profile');
-const submitCard = document.querySelector('.popup__submit_card');
-const submitAvatar = document.querySelector('.popup__submit_avatar');
+const submit = document.querySelector('.popup__submit');
 const profileAvatarBtn = document.querySelector('.profile__avatar-container');
 const profileEditButton = document.querySelector('.profile__edit-button');
 const profileAddButton = document.querySelector('.profile__add-button');
 const profileName = document.querySelector('.profile__name-form');
 const profileAbout = document.querySelector('.profile__about-form');
-const formProfile = document.querySelector('.popup__input-container_profile');
+const formProfile = document.querySelector('.popup__input-container');
 const formCard = document.querySelector('.popup__input-container_card');
 const formAvatar = document.querySelector('.popup__input-container_avatar');
 const popupName = document.querySelector('.popup__text_name');
@@ -27,7 +25,7 @@ const popupAvatar = document.querySelector('.popup__text_avatar');
 const popupProfile = document.querySelector('.popup_profile');
 const popupCard = document.querySelector('.popup_add-card');
 const popupEditAvatar = document.querySelector('.popup_edit-avatar');
-const cardsContainer = document.querySelector('.elements__cards');
+const cardsContainer = document.querySelector('.elements');
 const popupCloseButtons = document.querySelectorAll('.popup__close-button');
 export const popupImage = document.querySelector('.popup__image');
 export const popupTextPicture = document.querySelector('.popup__text-picture');
@@ -96,7 +94,7 @@ popupCloseButtons.forEach(function (item) {
 //функция добавления текста в профиль
 const addProfileText = (evt) => {
   evt.preventDefault();
-  submitProfile.textContent = 'Сохранение...';
+  submit.textContent = 'Сохранение...';
   profileEditData({name: popupName.value, about: popupAbout.value})
     .then((data) => {
       profileName.textContent = data.name;
@@ -107,14 +105,14 @@ const addProfileText = (evt) => {
       console.error(err);
     })
     .finally(() => {
-      submitProfile.textContent = 'Сохранить';
+      submit.textContent = 'Сохранить';
     })
 }
 
 //функция редактирования аватара
 const addProfileAvatar = (evt) => {
   evt.preventDefault();
-  submitAvatar.textContent = 'Сохранение...';
+  submit.textContent = 'Сохранение...';
   profileEditAvatar({ avatar: popupAvatar.value })
     .then((data) => {
       profileAvatar.src = data.avatar;
@@ -124,7 +122,7 @@ const addProfileAvatar = (evt) => {
       console.error(err);
     })
     .finally(() => {
-      submitAvatar.textContent = 'Сохранить';
+      submit.textContent = 'Сохранить';
       evt.target.reset();
     })
 }
@@ -150,7 +148,7 @@ getCardData()
 //функция сохранения моей карточки на сервере
 const addMyCard = (evt) => {
   evt.preventDefault();
-  submitCard.textContent = 'Сохранение...';
+  submit.textContent = 'Сохранение...';
   createCardData({ name: popupNameCard.value, link: popupAddresCard.value })
     .then((data) => {
       addCard(data);
@@ -160,7 +158,7 @@ const addMyCard = (evt) => {
       console.error(err);
     })
     .finally(() => {
-      submitCard.textContent = 'Сохранить';
+      submit.textContent = 'Сохранить';
       evt.target.reset();
     })
 }
